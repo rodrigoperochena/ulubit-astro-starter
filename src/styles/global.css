@@ -1,0 +1,215 @@
+/* Fluid typography */
+/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,1920,22,1.2,10,2,360-414-768-1024-1366-1440-1920&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  --step--2: clamp(0.6944rem, 0.6343rem + 0.2671vw, 0.9549rem);
+  --step--1: clamp(0.8333rem, 0.7612rem + 0.3205vw, 1.1458rem);
+  --step-0: clamp(1rem, 0.9135rem + 0.3846vw, 1.375rem);
+  --step-1: clamp(1.2rem, 1.0962rem + 0.4615vw, 1.65rem);
+  --step-2: clamp(1.44rem, 1.3154rem + 0.5538vw, 1.98rem);
+  --step-3: clamp(1.728rem, 1.5785rem + 0.6646vw, 2.376rem);
+  --step-4: clamp(2.0736rem, 1.8942rem + 0.7975vw, 2.8512rem);
+  --step-5: clamp(2.4883rem, 2.273rem + 0.957vw, 3.4214rem);
+  --step-6: clamp(2.986rem, 2.7276rem + 1.1485vw, 4.1057rem);
+}
+
+/* Fluid spacing */
+/* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1920,22,1.2,10,2,360-414-768-1024-1366-1440-1920&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  --space-3xs: clamp(0.25rem, 0.2212rem + 0.1282vw, 0.375rem);
+  --space-2xs: clamp(0.5rem, 0.4567rem + 0.1923vw, 0.6875rem);
+  --space-xs: clamp(0.75rem, 0.6779rem + 0.3205vw, 1.0625rem);
+  --space-s: clamp(1rem, 0.9135rem + 0.3846vw, 1.375rem);
+  --space-m: clamp(1.5rem, 1.3702rem + 0.5769vw, 2.0625rem);
+  --space-l: clamp(2rem, 1.8269rem + 0.7692vw, 2.75rem);
+  --space-xl: clamp(3rem, 2.7404rem + 1.1538vw, 4.125rem);
+  --space-2xl: clamp(4rem, 3.6538rem + 1.5385vw, 5.5rem);
+  --space-3xl: clamp(6rem, 5.4808rem + 2.3077vw, 8.25rem);
+
+  --space-s-m: clamp(1rem, 0.7548rem + 1.0897vw, 2.0625rem);
+  --space-m-l: clamp(1.5rem, 1.2115rem + 1.2821vw, 2.75rem);
+  --space-l-xl: clamp(2rem, 1.5096rem + 2.1795vw, 4.125rem);
+  --space-xl-2xl: clamp(3rem, 2.4231rem + 2.5641vw, 5.5rem);
+  --space-2xl-3xl: clamp(4rem, 3.0192rem + 4.359vw, 8.25rem);
+
+  --gutter-xs: var(--space-s);
+  --gutter-s: var(--space-s-m);
+  --gutter-m: var(--space-m-l);
+  --gutter-l: var(--space-l-xl);
+  --gutter-xl: var(--space-xl-2xl);
+}
+
+/* Font tokens */
+:root {
+  --font-heading: var(--font-source-serif-4), Georgia, "Times New Roman", Times, serif;
+  --font-body: var(--font-source-sans-3), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-technical: var(--font-source-code-pro), monospace;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+}
+
+/* Color tokens */
+:root {
+  color-scheme: light dark;
+
+  --color-neutral-50: oklch(98.5% 0 0);
+  --color-neutral-100: oklch(97% 0 0);
+  --color-neutral-800: oklch(26.9% 0 0);
+  --color-neutral-900: oklch(20.5% 0 0);
+  --color-neutral-950: oklch(14.5% 0 0);
+
+  --color-gray-100: oklch(96.7% .003 264.542);
+  --color-gray-300: oklch(87.2% .01 258.338);
+  --color-gray-600: oklch(44.6% .03 256.802);
+  --color-gray-700: oklch(37.3% .034 259.733);
+
+  --color-white: #fff;
+  --color-primary: #6c7559;
+
+  --color-bg: light-dark(var(--color-neutral-50), var(--color-neutral-900));
+  --color-bg-light: light-dark(var(--color-white), var(--color-neutral-800));
+  --color-text: light-dark(var(--color-gray-700), var(--color-gray-100));
+  --color-text-link: light-dark(var(--color-gray-600), var(--color-gray-300));
+  --color-button-bg: var(--color-primary);
+  --color-button-text: var(--color-neutral-50);
+}
+
+/* Misc global tokens */
+:root {
+  --border-radius: var(--space-2xs);
+  --transition-duration: 0.618s;
+  --transition-duration-fast: 0.382s;
+  --transition-duration-turbo: 0.236s;
+  --transition-duration-hidden: 1.618s;
+
+  --header-height: 6rem;
+  --mobile-toc-height: 3rem;
+  --footer-height: 2.5rem;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: var(--font-regular);
+  line-height: 1.618;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-optical-sizing: auto;
+}
+
+p {
+  margin-block: var(--space-xs);
+}
+
+/* True global utilities */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.overflow-hidden {
+  overflow-y: hidden;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: 0 0 0.25rem 0.25rem;
+  text-align: center;
+  background-color: var(--color-bg-light);
+  font-size: var(--step--1);
+  color: var(--color-text);
+  translate: -50% -100%;
+  transition: translate 0.25s ease-in-out;
+  z-index: 99;
+  opacity: 0;
+}
+
+.skip-link:focus {
+  translate: -50% 0;
+  opacity: 1;
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-text-link);
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+@media (width >= 56rem) {
+  :root {
+    --header-height: 8rem;
+    --mobile-toc-height: 0rem;
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: var(--gutter-xs);
+}
+
+@media (width >= 40rem) {
+  .container {
+    max-width: 40rem;
+    padding-inline: var(--gutter-s);
+  }
+}
+
+@media (width >= 48rem) {
+  .container {
+    max-width: 48rem;
+    padding-inline: var(--gutter-m);
+  }
+}
+
+@media (width >= 56rem) {
+  .container {
+    max-width: 56rem;
+    padding-inline: var(--gutter-l);
+  }
+}
+
+@media (width >= 64rem) {
+  .container {
+    padding-inline: var(--gutter-xl);
+  }
+}
+
+@media (width >= 72rem) {
+  .container {
+    max-width: 72rem;
+  }
+}
+
+@media (width >= 80rem) {
+  .container {
+    max-width: 80rem;
+  }
+}
+
+@media (width >= 96rem) {
+  .container {
+    max-width: 96rem;
+  }
+}

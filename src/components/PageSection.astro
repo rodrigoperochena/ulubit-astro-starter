@@ -1,0 +1,39 @@
+---
+// This is a .astro file
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const { size = 'xl' } = Astro.props;
+
+const sectionClass = size === 'xl' ? 'page-section' : `page-section-${size}`;
+---
+
+<section class={sectionClass}>
+  <div class="container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-section {
+    margin-block: var(--gutter-xl);
+  }
+
+  .page-section-sm {
+    margin-block: var(--gutter-s);
+  }
+
+  .page-section-md {
+    margin-block: var(--gutter-m);
+  }
+
+  .page-section-lg {
+    margin-block: var(--gutter-l);
+  }
+
+  .page-section-xl {
+    margin-block: var(--gutter-xl);
+  }
+</style>
