@@ -34,4 +34,9 @@ export default defineConfig({
     enabled: false
   },
 
+  vite: {
+    css: {
+      devSourcemap: true, // Enable CSS source maps
+    },
+  }
 });
