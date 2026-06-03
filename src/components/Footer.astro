@@ -16,25 +16,23 @@ const buildYear = new Date().getFullYear()
     display: flex;
     align-items: center;
     background-color: var(--color-bg-light);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
 
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding-block: var(--space-2xs);
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
+  p {
+    margin: 0;
+    font-size: var(--step--2);
+  }
 
-    p {
-      margin: 0;
-      font-size: var(--step--2);
-    }
-    
-
-    .link {
-      text-decoration: none;
-    }
+  .link {
+    text-decoration: none;
   }
 </style>
 
