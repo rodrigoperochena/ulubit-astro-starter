@@ -1,4 +1,4 @@
-import type { SiteConfig } from "./types";
+import type { MenuLinks, SiteConfig } from "./types";
 
 export const siteConfig: SiteConfig = {
   // used in astro.config.ts
@@ -47,3 +47,23 @@ export const siteConfig: SiteConfig = {
 	// Replace with the data-website-id value 
 	analyticsId: "no-id-yet",
 };
+
+// Used to generate links in both the Header & Footer.
+export const menuLinks: MenuLinks = [
+	{
+		path: "/",
+		title: "Home",
+	},
+	{
+		path: "/about/",
+		title: "About",
+	},
+	{
+		path: "/services/",
+		title: "Services",
+	},
+	{
+		path: "/contact/",
+		title: "contact",
+	},
+] as const satisfies MenuLinks
