@@ -40,3 +40,10 @@ export interface SiteMeta {
 	ogImage?: string | undefined;
 	articleDate?: string | undefined;
 }
+
+export interface MenuLink {
+  path: string
+  title: string
+}
+
+export type MenuLinks = readonly MenuLink[]
