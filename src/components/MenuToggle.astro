@@ -1,0 +1,115 @@
+<button 
+  id="mobile-nav-toggle"
+  class="menu-toggle" 
+  type="button"
+  aria-controls="mobile-nav"
+  aria-expanded="false"
+  aria-label="Open menu"
+  data-menu-toggle
+> 
+  <span class="menu-toggle-menu">Menu</span>
+  <span class="menu-toggle-close">Close</span>
+  <div class="menu-toggle-lines"></div>
+</button>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .menu-toggle {   
+    position: relative;
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-text);
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    z-index: 1;
+    transition: var(--transition-duration);
+
+    @include at(md) {
+      display: none;
+    }
+  }
+
+  .menu-toggle-menu,
+  .menu-toggle-close,
+  .menu-toggle-lines {
+    transition: var(--transition-duration);
+    text-transform: uppercase;
+  }
+
+  .menu-toggle-menu,
+  .menu-toggle-close {
+    font-size: var(--step-0);
+    font-family: var(--font-mono);
+  }
+
+  .menu-toggle-close {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(1px);
+    transform: scale(0);
+  }
+
+  .menu-toggle-lines {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      border-radius: var(--border-radius);
+      background-color: var(--color-text);
+      transition: var(--transition-duration) ease-out;
+    }
+
+    &::before {
+      top: calc(var(--space-m)/4);
+    }
+
+    &::after {
+      bottom: calc(var(--space-m)/4 - 1px);
+    }
+  }
+
+  .menu-toggle[aria-expanded="true"] {
+    .menu-toggle-menu {
+      opacity: 0;
+      visibility: hidden;
+      filter: blur(1px);
+      transform: scale(0);
+    }
+
+    .menu-toggle-close {
+      opacity: 1;
+      visibility: visible;
+      filter: blur(0);
+      transform: scale(1);
+    }
+
+    .menu-toggle-lines {
+      transform: rotate(-45deg);
+      width: var(--space-s);
+
+      &::before {
+        top: 50%;
+        width: 100%;
+      }
+    
+      &::after {
+        transform: rotate(90deg);
+        top: 50%;
+      }
+    }
+  }
+</style>
