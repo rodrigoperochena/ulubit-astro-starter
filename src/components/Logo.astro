@@ -1,0 +1,38 @@
+---
+import BrandLogo from '@/assets/logo.svg'
+import { siteConfig } from '@/site.config'
+import type { SvgComponent } from "astro/types"
+
+interface Props { 
+  isHome: boolean
+  BrandLogo?: SvgComponent 
+}
+
+const { isHome = false } = Astro.props
+
+---
+
+{ isHome ? (
+  <h1>
+    <a href="/" class="logo-link">
+      <BrandLogo />
+      <div class:list={["logo-heading", "visually-hidden"]}>{siteConfig.brand}</div>
+    </a>
+  </h1>
+) : (
+  <a href="/" class="logo-link">
+    <BrandLogo />
+    <div class:list={["logo-heading", "visually-hidden"]}>{siteConfig.brand}</div>
+  </a>
+)}
+
+<style>
+  .logo-link {
+    position: relative;
+    z-index: 1;
+  }
+  svg {
+    height: var(--space-m);
+    width: fit-content;
+  }
+</style>
