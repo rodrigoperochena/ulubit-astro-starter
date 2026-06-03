@@ -1,0 +1,135 @@
+---
+import { menuLinks } from "@/site.config"
+import Logo from "./Logo.astro"
+import MenuToggle from "./MenuToggle.astro"
+import Navigation from "./Navigation.astro"
+
+const isHome = Astro.url.pathname === "/"
+---
+<header class="site-header" data-site-header>
+  <div class="container">
+    <Logo {isHome} />
+    <Navigation links={menuLinks} class="header-navigation" label="Main" isToggleable />
+    <MenuToggle /> 
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../styles/breakpoints" as *;
+
+  header {
+    position: fixed;
+    top: 0;
+    height: var(--header-height);
+    width: 100%;
+    z-index: 2;
+    transition: var(--transition-duration);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+  }
+</style>
+
+<script>
+  // function to toggle the burger menu
+  const siteHeader = document.querySelector('[data-site-header]')
+
+  if (!(siteHeader instanceof HTMLElement)) {
+    throw new Error("Site header not found")
+  }
+  
+  const menuToggleButton = siteHeader.querySelector('[data-menu-toggle]')
+  const mobileNav = siteHeader.querySelector('[data-nav]')
+
+  if (!(menuToggleButton instanceof HTMLButtonElement)) {
+    throw new Error("Menu toggle button not found")
+  }
+
+  if (!(mobileNav instanceof HTMLElement)) {
+    throw new Error("Mobile nav not found")
+  }
+
+  const isMenuOpen = () => {
+    return menuToggleButton.getAttribute("aria-expanded") === "true"
+  }
+
+
+  // Opens mobile navigation
+  const openMenu = () => {
+    // Tell assistive tech that the controlled nav is open.
+    menuToggleButton.setAttribute("aria-expanded", "true")
+
+    // Updates the accessible name of the button
+    menuToggleButton.setAttribute("aria-label", "Close menu")
+
+    // Give CSS the open state for transform animation
+    mobileNav.dataset.state = "open"
+
+    // Allows interaction with links inside the opened nav
+    mobileNav.hidden = false
+
+    // Locks page scrolling while the menu is open
+    document.body.classList.add("overflow-hidden", "menu-open")
+  }
+
+
+  // Close the full mobile navigation panel
+  const closeMenu = () => {
+    // Tells assitive tech that the controlled nav is closed
+    menuToggleButton.setAttribute("aria-expanded", "false")
+
+    // Updates the accessible name of the button
+    menuToggleButton.setAttribute("aria-label", "Open menu")
+
+    // Give CSS the closed state for transform animation.
+    mobileNav.dataset.state = "closed"
+
+    // Prevents interaction with links inside the closed nav
+    mobileNav.hidden = true
+
+    // Restores page scrolling
+    document.body.classList.remove("overflow-hidden", "menu-open")
+  }
+  
+
+  // Switches between open and closed state
+  const toggleMenu = () => {
+
+    // Closes if open, opens if closed
+    isMenuOpen() ? closeMenu() : openMenu()
+  }
+
+  // Let mouse, touch, keyboard activation, and assistive tech activation trigger the button.
+  menuToggleButton.addEventListener("click", toggleMenu)
+
+  // Closes the menu when Escape is pressed
+  document.addEventListener("keydown", (event) => {
+    // Ignores every key except Escape
+    if (event.key !== "Escape") return
+
+    if (!isMenuOpen) return
+
+    // Closes the menu.
+    closeMenu()
+
+    // Returns focus to the toggle button.
+    menuToggleButton.focus()
+  })
+
+  // Closes the mobile menu after a nav link is clicked
+  mobileNav.addEventListener("click", (event) => {
+    // Finds the closest clicked link, if any
+    const link = event.target instanceof Element ? event.target.closest("a") : null
+
+    // Ignores clicks that were not on links
+    if (!link) return
+
+    // Closes the mobile panel after link selection
+    closeMenu()
+  })
+</script>
