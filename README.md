@@ -2,7 +2,7 @@
 
 A small Astro starter for building simple, maintainable marketing sites.
 
-It includes a typed site config, base layout, SEO/social metadata, global CSS tokens, sitemap support, robots.txt, favicons, Open Graph image assets, and preloaded Astro fonts.
+It includes a typed site config, base layout, SEO/social metadata, global CSS tokens, sitemap support with dynamic robots.txt generation, favicons, Open Graph image assets, and preloaded Astro fonts.
 
 ## Tech stack
 
@@ -14,36 +14,39 @@ It includes a typed site config, base layout, SEO/social metadata, global CSS to
 
 ## Getting started
 
-Install dependencies:
+[Create a new repo](https://github.com/rodrigoperochena/ulubit-astro-starter/generate) from this template.
 
 ```sh
-pnpm install
+# pnpm
+pnpm create astro@latest --template rodrigoperochena/ulubit-astro-starter
+
+# npm 7+
+npm create astro@latest -- --template rodrigoperochena/ulubit-astro-starter
 ```
 
-Start the local dev server:
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rodrigoperochena/ulubit-astro-starter)
 
-```sh
-pnpm dev
-```
 
-Build the site:
+## Commands
 
-```sh
-pnpm build
-```
+Replace pnpm with your choice of npm / yarn
 
-Preview the production build locally:
+| Command          | Action                                                         |
+| :--------------- | :------------------------------------------------------------- |
+| `pnpm install`   | Installs dependencies                                          |
+| `pnpm dev`       | Starts local dev server at `localhost:4321`                    |
+| `pnpm build`     | Build your production site to `./dist/`                        |
+| `pnpm preview`   | Preview your build locally, before deploying                   |
+| `pnpm sync`      | Generate types                                                 |
 
-```sh
-pnpm preview
-```
 
-### `src/site.config.ts`
+## Main files
+
+#### `src/site.config.ts`
 
 Central place for site-wide values
 
-
-### `src/styles/global.css`
+#### `src/styles/global.css`
 
 Global design foundation:
 
@@ -55,7 +58,8 @@ Global design foundation:
 - accessibility utilities
 - `.container` layout utility
 
-### `src/layouts/Base.astro`
+
+#### `src/layouts/Base.astro`
 
 Default page shell:
 
@@ -64,7 +68,7 @@ Default page shell:
 - renders `BaseHead`
 - optionally renders `Header` and `Footer`
 
-### `src/components/BaseHead.astro`
+#### `src/components/BaseHead.astro`
 
 Default metadata component:
 
