@@ -1,3 +1,10 @@
+# Wait 10080 min (7 days) before installing newly published package versions.
+# can use pnpm install --config.minimumReleaseAge=0 if need to by pass it
+minimumReleaseAge: 10080
+
+# Explicitly approve dependency packages that are allowed to run install/build scripts.
 allowBuilds:
+  # Required by Astro/Vite tooling to run install/build scripts.
   esbuild: true
+  # Required for Astro image processing.
   sharp: true
