@@ -14,6 +14,16 @@
   --step-6: clamp(2.986rem, 2.7276rem + 1.1485vw, 4.1057rem);
 }
 
+:root {
+  --step-0-leading: calc(1.5 / 1);
+  --step-1-leading: calc(1.75 / 1.2);
+  --step-2-leading: calc(2 / 1.44);
+  --step-3-leading: calc(2.25 / 1.728);
+  --step-4-leading: calc(2.5 / 2.0736);
+  --step-5-leading: calc(2.75 / 2.4883);
+  --step-6-leading: calc(3 / 2.986);
+}
+
 /* Fluid spacing */
 /* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1920,22,1.2,10,2,360-414-768-1024-1366-1440-1920&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
