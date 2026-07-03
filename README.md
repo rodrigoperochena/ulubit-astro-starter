@@ -1,15 +1,16 @@
 # UluBit Astro Starter
 
-A small Astro starter for building simple, maintainable marketing sites.
+A small base Astro starter for building maintainable sites.
 
-It includes a typed site config, base layout, SEO/social metadata, global CSS tokens, sitemap support with dynamic robots.txt generation, favicons, Open Graph image assets, and preloaded Astro fonts.
+It includes a typed site config, base layout, SEO/social metadata, global CSS tokens, sitemap support with dynamic robots.txt generation, favicons, Open Graph image assets, and basic config of Astro fonts using FontSource.
 
-## Tech stack
+## Features
 
-- Astro `^6.4.2`
-- pnpm
+- Astro 7+
 - `@astrojs/sitemap`
-- Astro Fonts API with Fontsource providers
+- `sass-embedded`
+- pnpm
+- Astro Fonts API
 
 
 ## Getting started
