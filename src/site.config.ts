@@ -1,6 +1,6 @@
 import type { MenuLinks, SiteConfig } from "./types";
 
-export const siteConfig: SiteConfig = {
+export const siteConfig = {
   // used in astro.config.ts
   url: "https://example.com",
   // Used to construct the meta title property found in src/components/BaseHead.astro
@@ -46,10 +46,10 @@ export const siteConfig: SiteConfig = {
 	devUrl: "https://ulubit.com",
 	// Replace with the data-website-id value 
 	analyticsId: "no-id-yet",
-};
+} as const satisfies SiteConfig;
 
 // Used to generate links in both the Header & Footer.
-export const menuLinks: MenuLinks = [
+export const menuLinks = [
 	{
 		path: "/",
 		title: "Home",
