@@ -26,10 +26,10 @@ export const siteConfig = {
   phoneFormatted: "",
   address: {
     street: "123 Main Street",
-    city: "Ithaca",
-    region: "NY",
-    postalCode: "14850",
-    country: "US"
+    city: "Uluwatu",
+    region: "Bali",
+    postalCode: "80361",
+    country: "ID"
   },
   socials: [
     {
