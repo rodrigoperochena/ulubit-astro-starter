@@ -14,19 +14,19 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: 'Source Serif 4',
       cssVariable: '--font-source-serif-4',
-      weights: [400,500,600,700]
+      weights: ["400 700"]
     },
     {
       provider: fontProviders.fontsource(),
       name: 'Source Sans 3',
       cssVariable: '--font-source-sans-3',
-      weights: [300,400,500,600,700]
+      weights: ["300 700"]
     },
     {
       provider: fontProviders.fontsource(),
       name: 'Source Code Pro',
       cssVariable: '--font-source-code-pro',
-      weights: [300,400,500,600,700]
+      weights: ["300 700"]
     }
   ],
 
