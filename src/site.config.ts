@@ -64,6 +64,12 @@ export const siteConfig = {
     youtube: {
       label: "Youtube",
       url: "https://youtube.com/username",
+    },
+    
+    twitter: {
+      label: "Twitter",
+      url: "https://x.com/username",
+      handle: "@username"
     }
   },
 

@@ -51,6 +51,7 @@ export interface SiteConfig {
     instagram?: SocialLink
     facebook?: SocialLink
     youtube?: SocialLink
+    twitter?: SocialLink
   }
   
   author?: string;
