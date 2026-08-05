@@ -7,12 +7,21 @@ import { siteConfig } from '@/site.config'
 import '@/styles/global.scss'
 
 interface Props extends SiteMeta {
+	pageLayout?: "default" | "home" | "docs"
 	showHeader?: boolean
 	showFooter?: boolean
-  class?: string
+  bodyClass?: string
 }
 
-const { title, description, class: bodyClass, ogImage, showHeader = true, showFooter = true } = Astro.props
+const { 
+	title, 
+	description, 
+	pageLayout = "default",
+	bodyClass, 
+	ogImage, 
+	showHeader = true, 
+	showFooter = true 
+} = Astro.props
 ---
 <!doctype html>
 <html lang={siteConfig.lang}>
@@ -20,13 +29,17 @@ const { title, description, class: bodyClass, ogImage, showHeader = true, showFo
 		<BaseHead {title} {description} {ogImage}/>
 		<slot name="head" />
 	</head>
-	<body class:list={[bodyClass, "technical-paper"]}>
+
+	<body class:list={[bodyClass]}>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+
 		{showHeader && <Header />}
-		<main>
+		<div class:list={["page-layout", `page-layout--${pageLayout}`]}>
 			<slot />
-		</main>
+		</div>
 		{showFooter && <Footer />}
 	</body>
+
 </html>
 
 <script>
