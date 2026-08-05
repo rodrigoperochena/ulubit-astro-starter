@@ -1,14 +1,13 @@
 ---
 import { menuLinks } from "@/site.config"
-import Logo from "./Logo.astro"
 import MenuToggle from "./MenuToggle.astro"
 import Navigation from "./Navigation.astro"
+import SiteBrand from "./SiteBrand.astro"
 
-const isHome = Astro.url.pathname === "/"
 ---
 <header class="site-header" data-site-header>
   <div class="container">
-    <Logo {isHome} />
+    <SiteBrand />
     <Navigation links={menuLinks} class="header-navigation" label="Main" isToggleable />
     <MenuToggle /> 
   </div>
