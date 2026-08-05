@@ -26,7 +26,7 @@ const { links, label, isToggleable = false, class: className } = Astro.props
 </nav>
 
 <style lang="scss">
-  @use '../styles/breakpoints' as *;
+  @use '@ulubit/foundations/breakpoints' as *;
 
   .header-navigation {
     display: flex;
@@ -35,7 +35,6 @@ const { links, label, isToggleable = false, class: className } = Astro.props
     max-height: 100svh;
     position: fixed;
     inset: 0;
-    width: 100svw;
     background-color: var(--color-bg);
     transform: translateX(100%);
     transition: transform var(--transition-duration) cubic-bezier(.6,0,.4,1);
@@ -60,19 +59,6 @@ const { links, label, isToggleable = false, class: className } = Astro.props
     @include at(xl) {
       display: flex;
       justify-content: end;
-    }
-  }
-
-  .menu-item:last-child {
-    .menu-link {
-      background-color: var(--color-primary);
-      color: var(--color-bg);
-      border-radius: var(--border-radius);
-      margin-top: var(--space-xs);
-
-      @include at(xl) {
-        margin: 0;
-      }
     }
   }
 
