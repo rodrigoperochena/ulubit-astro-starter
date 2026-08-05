@@ -1,10 +1,11 @@
 ---
-import Base from "@/layouts/Base.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/site.config";
 
 const title = siteConfig.title
 const description = siteConfig.description
+const bodyClass = "page-home"
 ---
-<Base {title}>
+<BaseLayout {title} {description} {bodyClass}>
 
-</Base>
+</BaseLayout>
