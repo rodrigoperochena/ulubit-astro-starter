@@ -3,27 +3,44 @@ import type { MenuLinks, SiteConfig } from "./types";
 export const siteConfig = {
   // used in astro.config.ts
   url: "https://example.com",
+
+  // Meta property, found in src/components/BaseHead.astro
+	brand: {
+    name: "UluBit Astro Starter",
+    shortName: "UluBit",
+    legalName: "UluBit inc",
+    tagline: "Web systems that make businesses easier to run."
+  },
+
   // Used to construct the meta title property found in src/components/BaseHead.astro
-  title: "Site title",
+  title: "A small base Astro starter for building maintainable sites",
   // Used as the default description meta property
-  description: "site description",
+  description: "It includes a typed site config, SEO/social metadata, sitemap support with dynamic robots.txt generation, Astro fonts using FontSource, and more.",
+
   // HTML lang property, found in src/layouts/Base.astro
   lang: "en-US",
 	// found in src/utils/date.ts.
   ogLocale: "en_US",
+
 	date: {
     locale: "en-US",
-		options: {
+	
+    options: {
       day: "numeric",
 			month: "short",
 			year: "numeric",
 		},
 	},
-  author: "UluBit",
-	// Meta property, found in src/components/BaseHead.astro
-	brand: "UluBit Astro Starter",
-  phone: "",
-  phoneFormatted: "",
+  
+  contact: {
+    email: "example@example.com",
+    
+    phone: {
+      value: "+15555555555",
+      display: "+1 555-555-5555"
+    }
+  },
+  
   address: {
     street: "123 Main Street",
     city: "Uluwatu",
@@ -31,19 +48,31 @@ export const siteConfig = {
     postalCode: "80361",
     country: "ID"
   },
-  socials: [
-    {
+  
+  socials: {
+    instagram: {
       label: "Instagram",
-      url: "https://instagram.com/example",
+      url: "https://instagram.com/username",
+      handle: "username"
     },
-    {
+    
+    facebook: {
       label: "Facebook",
-      url: "https://facebook.com/example",
+      url: "https://facebook.com/username",
+    },
+
+    youtube: {
+      label: "Youtube",
+      url: "https://youtube.com/username",
     }
-  ],
+  },
+
+  author: "UluBit",
+
 	// Developer info
 	dev: 'UluBit',
 	devUrl: "https://ulubit.com",
+
 	// Replace with the data-website-id value 
 	analyticsId: "no-id-yet",
 } as const satisfies SiteConfig;

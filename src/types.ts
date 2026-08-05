@@ -6,32 +6,59 @@ export interface Address {
   country?: string;
 }
 
+export interface Contact {
+  email: string;
+
+  phone: {
+    value: string;
+    display: string;
+  };
+}
+
+export interface Brand {
+  name: string
+  shortName?: string
+  legalName: string
+  tagline?: string
+}
+
 export interface SocialLink {
   label: string;
   url: string;
+  handle?: string
 }
 
 export interface SiteConfig {
   url: string
-  brand: string
+  
+  brand: Brand
+  
   title: string
   description: string
+  
   lang: string
   ogLocale: string
-	author: string;
+	
 	date: {
     locale: Intl.LocalesArgument;
 		options: Intl.DateTimeFormatOptions;
 	};
-  email?: string
-  phone?: string
-  phoneFormatted?: string
+  
+  contact: Contact
   address?: Address
-  socials?: SocialLink[]
-	twitterId?: string
-	analyticsId: string
+  
+  socials?: {
+    instagram?: SocialLink
+    facebook?: SocialLink
+    youtube?: SocialLink
+  }
+  
+  author?: string;
+
 	dev: string
 	devUrl: string;
+	
+  analyticsId: string
 }
 
 export interface SiteMeta {
