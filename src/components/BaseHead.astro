@@ -23,7 +23,7 @@ const analyticsId = siteConfig.analyticsId
 <Analytics {analyticsId} />
 
 <!-- Essential Metadata -->
-<title>{title} | { siteConfig.brand }</title>
+<title>{title} | { siteConfig.brand.name }</title>
 <meta name="description" content={description} />
 <meta name="author" content={siteConfig.author} />
 
@@ -64,9 +64,6 @@ const analyticsId = siteConfig.analyticsId
 {siteConfig.socials.twitter.handle && (
 	<meta name="twitter:creator" content={siteConfig.socials.twitter.handle} />
 )}
-
-<!-- Structured Data -->
-<script type="application/ld+json"></script>
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
