@@ -39,7 +39,7 @@ const analyticsId = siteConfig.analyticsId
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:image" content={ogImageUrl}>
-<meta property="og:site_name" content={siteConfig.brand} />
+<meta property="og:site_name" content={siteConfig.brand.name} />
 <meta property="og:locale" content={siteConfig.ogLocale} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -58,8 +58,12 @@ const analyticsId = siteConfig.analyticsId
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={ogImageUrl}>
 <meta name="twitter:url" content={canonicalUrl}>
-{siteConfig.twitterId && <meta name="twitter:site" content={siteConfig.twitterId} />}
-{siteConfig.twitterId && <meta name="twitter:creator" content={siteConfig.twitterId} />}
+{siteConfig.socials.twitter.handle && (
+	<meta name="twitter:site" content={siteConfig.socials.twitter.handle} />
+)}
+{siteConfig.socials.twitter.handle && (
+	<meta name="twitter:creator" content={siteConfig.socials.twitter.handle} />
+)}
 
 <!-- Structured Data -->
 <script type="application/ld+json"></script>
@@ -69,7 +73,7 @@ const analyticsId = siteConfig.analyticsId
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content={siteConfig.brand} />
+<meta name="apple-mobile-web-app-title" content={siteConfig.brand.shortName} />
 <link rel="manifest" href="/site.webmanifest" />
 
 <!-- Fonts -->
