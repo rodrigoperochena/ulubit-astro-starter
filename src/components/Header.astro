@@ -111,7 +111,7 @@ import SiteBrand from "./SiteBrand.astro"
     // Ignores every key except Escape
     if (event.key !== "Escape") return
 
-    if (!isMenuOpen) return
+    if (!isMenuOpen()) return
 
     // Closes the menu.
     closeMenu()
