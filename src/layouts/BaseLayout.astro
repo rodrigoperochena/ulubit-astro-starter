@@ -7,7 +7,7 @@ import { siteConfig } from '@/site.config'
 import '@/styles/global.scss'
 
 interface Props extends SiteMeta {
-	pageLayout?: "default" | "home" | "docs"
+	pageLayout?: "default" | "home"
 	showHeader?: boolean
 	showFooter?: boolean
   bodyClass?: string
@@ -15,10 +15,11 @@ interface Props extends SiteMeta {
 
 const { 
 	title, 
-	description, 
+	description = siteConfig.description, 
 	pageLayout = "default",
 	bodyClass, 
 	ogImage, 
+	articleDate,
 	showHeader = true, 
 	showFooter = true 
 } = Astro.props
@@ -26,7 +27,7 @@ const {
 <!doctype html>
 <html lang={siteConfig.lang}>
 	<head>
-		<BaseHead {title} {description} {ogImage}/>
+		<BaseHead {title} {description} {ogImage} {articleDate}/>
 		<slot name="head" />
 	</head>
 
@@ -94,26 +95,3 @@ const {
   }
   headerScroll()
 </script>
-
-<style>
-	.scroll-down,
-	.scroll-up {
-		& :global(.logo-image) {			
-			display: none;
-		}
-
-		& :global(.logo-heading) {
-			display: block;
-		}
-
-		& :global(.site-header) {
-			background-color: oklch(from var(--color-bg) l c h / 95%);
-		}
-  }
-	
-	main {
-		min-height: calc(100vh - var(--footer-height));
-		padding-top: var(--header-height);
-		display: grid;
-	}
-</style>
