@@ -4,9 +4,9 @@ interface Props {
 }
 
 const { analyticsId } = Astro.props
-
 const isProd = import.meta.env.PROD
+const shouldLoadAnalytics = isProd && analyticsId
 ---
-{isProd && (
+{shouldLoadAnalytics && (
   <script defer src="https://analytics.ulubit.com/app.js" data-website-id={analyticsId}></script>
 )}
