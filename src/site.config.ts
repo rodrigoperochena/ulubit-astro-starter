@@ -17,7 +17,7 @@ export const siteConfig = {
   // Used as the default description meta property
   description: "It includes a typed site config, SEO/social metadata, sitemap support with dynamic robots.txt generation, Astro fonts using FontSource, and more.",
 
-  // HTML lang property, found in src/layouts/Base.astro
+  // HTML lang property, found in src/layouts/BaseLayout.astro
   lang: "en-US",
 	// found in src/utils/date.ts.
   ogLocale: "en_US",
@@ -80,25 +80,17 @@ export const siteConfig = {
 	devUrl: "https://ulubit.com",
 
 	// Replace with the data-website-id value 
-	analyticsId: "no-id-yet",
+	analyticsId: "",
 } as const satisfies SiteConfig;
 
-// Used to generate links in both the Header & Footer.
+// Used to generate links, currently used in Navigation.astro.
 export const menuLinks = [
 	{
-		path: "/",
-		title: "Home",
-	},
-	{
-		path: "/about/",
+		path: "/about",
 		title: "About",
 	},
 	{
-		path: "/services/",
-		title: "Services",
-	},
-	{
 		path: "/contact/",
-		title: "contact",
+		title: "Contact",
 	},
 ] as const satisfies MenuLinks
