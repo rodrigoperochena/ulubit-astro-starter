@@ -1,0 +1,89 @@
+---
+import { menuLinks } from "@/site.config";
+import NavToggle from "./NavToggle.astro";
+import Navigation from "./Navigation.astro";
+---
+<div class="navigation-wrapper" data-navigation-wrapper>
+  <NavToggle />
+  <Navigation links={menuLinks} />
+</div>
+
+<style lang="scss">
+  @use "@ulubit/foundations/breakpoints" as *;
+
+
+</style>
+
+<script>
+  const navigationToggle = document.querySelector('[data-navigation-toggle]')
+  const navigation = document.querySelector('[data-navigation]')
+
+  if (!(navigationToggle instanceof HTMLButtonElement)) {
+    throw new Error("Menu toggle button not found")
+  }
+
+  if (!(navigation instanceof HTMLElement)) {
+    throw new Error("Mobile nav not found")
+  }
+
+  const isMenuOpen = () => {
+    return navigationToggle.getAttribute("aria-expanded") === "true"
+  }
+
+
+  // Opens mobile navigation
+  const openMenu = () => {
+    // Tell assistive tech that the controlled nav is open.
+    navigationToggle.setAttribute("aria-expanded", "true")
+
+    // Locks page scrolling while the menu is open
+    document.body.classList.add("overflow-hidden", "menu-open")
+  }
+
+
+  // Close the full mobile navigation panel
+  const closeMenu = () => {
+    // Tells assitive tech that the controlled nav is closed
+    navigationToggle.setAttribute("aria-expanded", "false")
+
+    // Restores page scrolling
+    document.body.classList.remove("overflow-hidden", "menu-open")
+  }
+  
+
+  // Switches between open and closed state
+  const toggleMenu = () => {
+
+    // Closes if open, opens if closed
+    isMenuOpen() ? closeMenu() : openMenu()
+  }
+
+  // Let mouse, touch, keyboard activation, and assistive tech activation trigger the button.
+  navigationToggle.addEventListener("click", toggleMenu)
+
+  // Closes the menu when Escape is pressed
+  document.addEventListener("keydown", (event) => {
+    // Ignores every key except Escape
+    if (event.key !== "Escape") return
+
+    if (!isMenuOpen()) return
+
+    // Closes the menu.
+    closeMenu()
+
+    // Returns focus to the toggle button.
+    navigationToggle.focus()
+  })
+
+  // Closes the mobile menu after a nav link is clicked
+  navigation.addEventListener("click", (event) => {
+    // Finds the closest clicked link, if any
+    const link = event.target instanceof Element ? event.target.closest("a") : null
+
+    // Ignores clicks that were not on links
+    if (!link) return
+
+    // Closes the mobile panel after link selection
+    closeMenu()
+  })
+</script>

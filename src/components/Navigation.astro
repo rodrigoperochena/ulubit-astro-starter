@@ -3,80 +3,97 @@ import type { MenuLinks } from '@/types'
 
 interface Props {
   links: MenuLinks
-  label: string
-  class?: string
-  isToggleable?: boolean
 }
 
-const { links, label, isToggleable = false, class: className } = Astro.props
+const { links } = Astro.props
+
+const currentPath = Astro.url.pathname
 ---
-<nav 
-  class:list={["navigation", className]}
-  aria-label={label} 
-  data-nav={isToggleable ? true : undefined}
-  data-state={isToggleable ? "closed" : undefined}
+<nav
+  class="navigation"
+  aria-label="primary"
+  data-navigation
 >
-  <ul class="menu-list">
+  <ul class:list={["navigation-list", "no-bullets"]}>
     {links.map((link) => (
-      <li class="menu-item">
-        <a href={link.path} class="menu-link">{link.title}</a>
+      <li>
+        <a
+          href={link.path}
+          class="navigation-link"
+          aria-current={link.path === currentPath ? "page" : undefined}
+        >
+          {link.title}
+        </a>
       </li>
     ))}
   </ul>
 </nav>
 
 <style lang="scss">
-  @use '@ulubit/foundations/breakpoints' as *;
+  @use "@ulubit/foundations/breakpoints" as *;
 
-  .header-navigation {
-    display: flex;
-    flex-direction: column;
+  .navigation {
+    display: grid;
+    align-items: center;
     justify-content: center;
-    max-height: 100svh;
+
     position: fixed;
     inset: 0;
     background-color: var(--color-bg);
-    transform: translateX(100%);
-    transition: transform var(--transition-duration) cubic-bezier(.6,0,.4,1);
 
-    &[data-state="open"] {
-      transform: translateX(0);
-      overflow-y: auto;
-    }
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(100%);
+
+    transition: var(--transition-duration) cubic-bezier(.6,0,.4,1);
 
     @include at(xl) {
-      position: relative;
-      transform: none;
+      position: static;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(0);
     }
   }
-  
-  .menu-list {    
-    padding-left: 0;
-    list-style: none;
-    margin-block: 0;
-    text-align: end;
+
+  :global(.navigation-toggle[aria-expanded="true"]) + .navigation {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .navigation-list {
+    text-align: center;
 
     @include at(xl) {
       display: flex;
-      justify-content: end;
+      align-items: center;
+      gap: var(--space-2xs);
     }
   }
 
-  .menu-link {
+  .navigation-link {
+    --active: oklch(from var(--color-bg-light) l c h / 70%);
+    --active-hover: var(--color-bg-light);
+
     font-size: var(--step-3);
     font-weight: var(--font-regular);
     color: var(--color-text);
-    line-height: 1.3;
+    text-decoration: none;
     display: block;
     padding: var(--space-2xs) var(--space-s);
-    width: fit-content;
-    margin-left: auto;
-    margin-right: var(--space-s);
-    text-decoration: none;
+    border-radius: var(--border-radius);
+
+    &:hover,
+    &[aria-current] {
+      background-color: var(--active);
+    }
+
+    &[aria-current]:hover {
+      background-color: var(--active-hover);
+    }
 
     @include at(xl) {
       font-size: var(--step-0);
-      margin-right: 0;
     }
   }
 </style>
