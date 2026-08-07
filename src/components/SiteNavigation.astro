@@ -46,6 +46,14 @@ import Navigation from "./Navigation.astro";
       pointer-events: auto;
       transform: translateX(0);
     }
+
+    :global(body.menu-open) {
+      overflow-y: hidden;
+
+      @include at(xl) {
+        overflow-y: auto;
+      }
+    }
   }
 </style>
 
@@ -76,7 +84,7 @@ import Navigation from "./Navigation.astro";
     navigationToggle.setAttribute("aria-expanded", "true")
 
     // Locks page scrolling while the menu is open
-    document.body.classList.add("overflow-hidden", "menu-open")
+    document.body.classList.add("menu-open")
   }
 
   // Close the full mobile navigation panel
@@ -85,7 +93,7 @@ import Navigation from "./Navigation.astro";
     navigationToggle.setAttribute("aria-expanded", "false")
 
     // Restores page scrolling
-    document.body.classList.remove("overflow-hidden", "menu-open")
+    document.body.classList.remove("menu-open")
   }
 
   // Switches between open and closed state
