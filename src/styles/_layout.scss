@@ -57,19 +57,6 @@
   position: relative;
 }
 
-.page-layout--home {
-  overflow-x: hidden;
-
-  @include at(xl) {
-    grid-template-columns: var(--gutter-l) minmax(0, var(--breakpoint-2xl)) var(--gutter-l);
-    justify-content: center;
-
-    main {
-      grid-column-start: 2;
-    }
-  }
-}
-
 :root {
   --content-padding: var(--space-s);
   --max-article-width: var(--container-7xl);

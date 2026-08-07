@@ -7,21 +7,17 @@ import { siteConfig } from '@/site.config'
 import '@/styles/global.scss'
 
 interface Props extends SiteMeta {
-	pageLayout?: "default" | "home"
-	showHeader?: boolean
-	showFooter?: boolean
+	pageLayout?: string
   bodyClass?: string
 }
 
 const { 
 	title, 
 	description = siteConfig.description, 
-	pageLayout = "default",
+	pageLayout,
 	bodyClass, 
 	ogImage, 
 	articleDate,
-	showHeader = true, 
-	showFooter = true 
 } = Astro.props
 ---
 <!doctype html>
@@ -34,13 +30,12 @@ const {
 	<body class:list={[bodyClass]}>
 		<a href="#main-content" class="skip-link">Skip to main content</a>
 
-		{showHeader && <Header />}
-		<div class:list={["page-layout", `page-layout--${pageLayout}`]}>
+		<Header />
+		<div class:list={["page-layout", pageLayout ? `page-layout--${pageLayout}` : undefined]}>
 			<slot />
 		</div>
-		{showFooter && <Footer />}
+		<Footer />
 	</body>
-
 </html>
 
 <script>
