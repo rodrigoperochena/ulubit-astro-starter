@@ -8,5 +8,10 @@ const isProd = import.meta.env.PROD
 const shouldLoadAnalytics = isProd && analyticsId
 ---
 {shouldLoadAnalytics && (
-  <script defer src="https://analytics.ulubit.com/app.js" data-website-id={analyticsId}></script>
+  <script 
+    is:inline 
+    defer 
+    src="https://analytics.ulubit.com/app.js" 
+    data-website-id={analyticsId}
+  ></script>
 )}
