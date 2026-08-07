@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/site.config";
 import { ButtonLink } from "@ulubit/ui";
+import GithubIcon from "@/assets/github.svg"
 
 const title = siteConfig.title
 const description = siteConfig.description
@@ -10,18 +11,24 @@ const bodyClass = "page-home"
 <BaseLayout {title} {description} {bodyClass}>
   <main id="main-content">
     <section class="hero">
-      <div class="hero-copy">
-        <div class="container">
+      <div class="container">
+        <div class="hero-copy">
           <h1 class="heading">{title}</h1>
           <p class="description">{description}</p>
         </div>
-
         <div class="hero-cta">
-          <div class="container">
-            <ButtonLink href="https://docs-ulubit.netlify.app">
-              Read the docs
-            </ButtonLink>
-          </div>
+          <ButtonLink href="https://docs-ulubit.netlify.app">
+            Read the docs
+          </ButtonLink>
+
+          <ButtonLink
+            href="https://github.com/rodrigoperochena/ulubit-astro-starter"
+            target="_blank" rel="noopener noreferrer"
+            variant="secondary"
+          >
+            <GithubIcon slot={"start"} />
+            View on Github
+          </ButtonLink>
         </div>
       </div>
     </section>
@@ -34,7 +41,14 @@ const bodyClass = "page-home"
   .hero {
     display: grid;
     align-items: center;
-    height: calc(100%/1.25);
+    
+    @media (height <= 42rem) {
+      height: 100%;
+    }
+
+    @media (42rem <= height) {
+      height: 80%;
+    }
 
     @include at(xl) {
       justify-content: center;
@@ -68,5 +82,12 @@ const bodyClass = "page-home"
 
   .hero-cta {
     margin-top: var(--space-l);
+    display: flex;
+    gap: var(--space-xs) var(--space-s);
+    flex-wrap: wrap;
+
+    @include at(xl) {
+      justify-content: center;
+    }
   }
 </style>

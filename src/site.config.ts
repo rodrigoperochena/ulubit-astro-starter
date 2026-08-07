@@ -15,7 +15,7 @@ export const siteConfig = {
   // Used to construct the meta title property found in src/components/BaseHead.astro
   title: "A small base Astro starter for building maintainable sites",
   // Used as the default description meta property
-  description: "It includes a typed site config, SEO/social metadata, sitemap support with dynamic robots.txt generation, Astro fonts using FontSource, and more.",
+  description: "A practical Astro starter for building consistent, maintainable websites with UluBit foundations, UI components, and shared project conventions.",
 
   // HTML lang property, found in src/layouts/BaseLayout.astro
   lang: "en-US",
@@ -86,7 +86,7 @@ export const siteConfig = {
 // Used to generate links, currently used in Navigation.astro.
 export const navigationLinks = [
 	{
-		path: "/about",
+		path: "/about/",
 		title: "About",
 	},
 	{
