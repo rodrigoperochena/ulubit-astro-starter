@@ -1,4 +1,4 @@
-# UluBit Astro Starter
+# UluBit Astro Starter [![Static Badge](https://img.shields.io/badge/v0.1.0-db8747)](https://github.com/rodrigoperochena/ulubit-astro-starter/releases)
 
 A small Astro starter for building UluBit websites consistently.
 
@@ -8,7 +8,7 @@ Shared design foundations are provided by `@ulubit/foundations`. Reusable Astro 
 
 ## Features
 
-* Astro 7+
+* Astro 7
 * TypeScript
 * pnpm
 * `@ulubit/foundations`
