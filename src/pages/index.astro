@@ -1,11 +1,72 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/site.config";
+import { ButtonLink } from "@ulubit/ui";
 
 const title = siteConfig.title
 const description = siteConfig.description
 const bodyClass = "page-home"
 ---
 <BaseLayout {title} {description} {bodyClass}>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="container">
+          <h1 class="heading">{title}</h1>
+          <p class="description">{description}</p>
+        </div>
 
+        <div class="hero-cta">
+          <div class="container">
+            <ButtonLink href="https://docs-ulubit.netlify.app">
+              Read the docs
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
+
+<style lang="scss">
+  @use "@ulubit/foundations/breakpoints" as *;
+
+  .hero {
+    display: grid;
+    align-items: center;
+    height: calc(100%/1.25);
+
+    @include at(xl) {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .container {
+      padding-inline: var(--space-l);
+    }
+  }
+
+  .hero-copy {
+    max-width: var(--container-3xl);
+  }
+
+  h1 {
+    font-size: var(--step-5);
+    line-height: 1.1;
+  }
+  
+  .description {
+    font-size: var(--step-1);
+    max-width: 65ch;
+    line-height: var(--phi);
+    margin-top: var(--space-m);
+
+    @include at(xl) {
+      margin-inline: auto;
+    }
+  }
+
+  .hero-cta {
+    margin-top: var(--space-l);
+  }
+</style>
