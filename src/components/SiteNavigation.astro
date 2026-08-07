@@ -11,28 +11,67 @@ import Navigation from "./Navigation.astro";
 <style lang="scss">
   @use "@ulubit/foundations/breakpoints" as *;
 
+  .navigation-wrapper {
+    :global(.navigation) {
+      position: fixed;
+      inset: 0;
+      background-color: var(--color-bg);
 
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateX(100%);
+
+      transition: transform var(--transition-duration-fast) cubic-bezier(.6,0,.4,1), visibility var(--transition-duration-fast);
+
+      @include at(xl) {
+        position: static;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0);
+      }
+    }
+
+    :global(.navigation-toggle) {
+      position: relative;
+      z-index: 1;
+
+      @include at(xl) {
+        display: none;
+      }
+    }
+
+    :global(.navigation-toggle[aria-expanded="true"]) + 
+    :global(.navigation) {
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+  }
 </style>
 
 <script>
-  const navigationToggle = document.querySelector('[data-navigation-toggle]')
-  const navigation = document.querySelector('[data-navigation]')
+  const navigationWrapper = document.querySelector('[data-navigation-wrapper]')
+  if (!(navigationWrapper instanceof HTMLElement)) {
+    throw new Error("navigation wrapper not found")
+  }
+
+  const navigationToggle = navigationWrapper.querySelector('[data-navigation-toggle]')
+  const navigation = navigationWrapper.querySelector('[data-navigation]')
 
   if (!(navigationToggle instanceof HTMLButtonElement)) {
-    throw new Error("Menu toggle button not found")
+    throw new Error("navigation toggle not found")
   }
 
   if (!(navigation instanceof HTMLElement)) {
-    throw new Error("Mobile nav not found")
+    throw new Error("navigation not found")
   }
 
-  const isMenuOpen = () => {
+  const isNavigationOpen = () => {
     return navigationToggle.getAttribute("aria-expanded") === "true"
   }
 
-
   // Opens mobile navigation
-  const openMenu = () => {
+  const openNavigation = () => {
     // Tell assistive tech that the controlled nav is open.
     navigationToggle.setAttribute("aria-expanded", "true")
 
@@ -40,42 +79,40 @@ import Navigation from "./Navigation.astro";
     document.body.classList.add("overflow-hidden", "menu-open")
   }
 
-
   // Close the full mobile navigation panel
-  const closeMenu = () => {
+  const closeNavigation = () => {
     // Tells assitive tech that the controlled nav is closed
     navigationToggle.setAttribute("aria-expanded", "false")
 
     // Restores page scrolling
     document.body.classList.remove("overflow-hidden", "menu-open")
   }
-  
 
   // Switches between open and closed state
-  const toggleMenu = () => {
+  const toggleNavigation = () => {
 
     // Closes if open, opens if closed
-    isMenuOpen() ? closeMenu() : openMenu()
+    isNavigationOpen() ? closeNavigation() : openNavigation()
   }
 
   // Let mouse, touch, keyboard activation, and assistive tech activation trigger the button.
-  navigationToggle.addEventListener("click", toggleMenu)
+  navigationToggle.addEventListener("click", toggleNavigation)
 
-  // Closes the menu when Escape is pressed
+  // Closes the navigation when Escape is pressed
   document.addEventListener("keydown", (event) => {
     // Ignores every key except Escape
     if (event.key !== "Escape") return
 
-    if (!isMenuOpen()) return
+    if (!isNavigationOpen()) return
 
-    // Closes the menu.
-    closeMenu()
+    // Closes the navigation.
+    closeNavigation()
 
     // Returns focus to the toggle button.
     navigationToggle.focus()
   })
 
-  // Closes the mobile menu after a nav link is clicked
+  // Closes the navigation after a nav link is clicked
   navigation.addEventListener("click", (event) => {
     // Finds the closest clicked link, if any
     const link = event.target instanceof Element ? event.target.closest("a") : null
@@ -84,6 +121,6 @@ import Navigation from "./Navigation.astro";
     if (!link) return
 
     // Closes the mobile panel after link selection
-    closeMenu()
+    closeNavigation()
   })
 </script>

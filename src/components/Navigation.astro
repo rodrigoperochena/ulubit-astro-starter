@@ -36,29 +36,6 @@ const currentPath = Astro.url.pathname
     display: grid;
     align-items: center;
     justify-content: center;
-
-    position: fixed;
-    inset: 0;
-    background-color: var(--color-bg);
-
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateX(100%);
-
-    transition: var(--transition-duration) cubic-bezier(.6,0,.4,1);
-
-    @include at(xl) {
-      position: static;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateX(0);
-    }
-  }
-
-  :global(.navigation-toggle[aria-expanded="true"]) + .navigation {
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(0);
   }
 
   .navigation-list {
