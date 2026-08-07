@@ -1,11 +1,11 @@
 ---
-import type { MenuLinks } from '@/types'
+import type { NavigationLinks } from '@/types'
 
 interface Props {
-  links: MenuLinks
+  navigationLinks: NavigationLinks
 }
 
-const { links } = Astro.props
+const { navigationLinks } = Astro.props
 
 const currentPath = Astro.url.pathname
 ---
@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname
   data-navigation
 >
   <ul class:list={["navigation-list", "no-bullets"]}>
-    {links.map((link) => (
+    {navigationLinks.map((link) => (
       <li>
         <a
           href={link.path}

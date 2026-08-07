@@ -1,4 +1,4 @@
-import type { MenuLinks, SiteConfig } from "./types";
+import type { NavigationLinks, SiteConfig } from "./types";
 
 export const siteConfig = {
   // used in astro.config.ts
@@ -84,7 +84,7 @@ export const siteConfig = {
 } as const satisfies SiteConfig;
 
 // Used to generate links, currently used in Navigation.astro.
-export const menuLinks = [
+export const navigationLinks = [
 	{
 		path: "/about",
 		title: "About",
@@ -93,4 +93,4 @@ export const menuLinks = [
 		path: "/contact/",
 		title: "Contact",
 	},
-] as const satisfies MenuLinks
+] as const satisfies NavigationLinks

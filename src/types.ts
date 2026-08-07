@@ -69,9 +69,9 @@ export interface SiteMeta {
 	articleDate?: string | undefined;
 }
 
-export interface MenuLink {
+export interface NavigationLink {
   path: string
   title: string
 }
 
-export type MenuLinks = readonly MenuLink[]
+export type NavigationLinks = readonly NavigationLink[]

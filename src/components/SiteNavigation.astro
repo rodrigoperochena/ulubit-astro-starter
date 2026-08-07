@@ -1,11 +1,11 @@
 ---
-import { menuLinks } from "@/site.config";
+import { navigationLinks } from "@/site.config";
 import NavToggle from "./NavToggle.astro";
 import Navigation from "./Navigation.astro";
 ---
 <div class="navigation-wrapper" data-navigation-wrapper>
   <NavToggle />
-  <Navigation links={menuLinks} />
+  <Navigation {navigationLinks} />
 </div>
 
 <style lang="scss">
