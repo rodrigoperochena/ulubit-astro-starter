@@ -29,11 +29,16 @@ const buildYear = new Date().getFullYear()
 
   p {
     margin: 0;
-    font-size: var(--step--2);
+    font-size: var(--step--1);
   }
 
-  .link {
+  a {
     text-decoration: none;
+  }
+
+  span[data-year],
+  .dev a {
+    font-family: var(--font-mono);
   }
 </style>
 

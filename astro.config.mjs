@@ -12,21 +12,14 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Source Serif 4',
-      cssVariable: '--font-source-serif-4',
-      weights: ["400 700"]
-    },
-    {
-      provider: fontProviders.fontsource(),
-      name: 'Source Sans 3',
-      cssVariable: '--font-source-sans-3',
+      name: 'Fira Sans',
+      cssVariable: '--font-fira-sans',
       weights: ["300 700"]
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Source Code Pro',
-      cssVariable: '--font-source-code-pro',
-      weights: ["300 700"]
+      name: 'JetBrains Mono',
+      cssVariable: '--font-jetbrains-mono',
     }
   ],
 
