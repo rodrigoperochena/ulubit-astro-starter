@@ -17,7 +17,7 @@ export interface Contact {
 
 export interface Brand {
   name: string
-  shortName?: string
+  shortName: string
   legalName: string
   tagline?: string
 }
@@ -54,12 +54,12 @@ export interface SiteConfig {
     twitter?: SocialLink
   }
   
-  author?: string;
+  author: string | null;
 
 	dev: string
 	devUrl: string;
 	
-  analyticsId?: string
+  analyticsId: string
 }
 
 export interface SiteMeta {
