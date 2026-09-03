@@ -1,6 +1,6 @@
 {
-  "name": "UluwatuWebDesign",
-  "short_name": "UluWeb",
+  "name": "UluBit Astro Starter",
+  "short_name": "UluBit Starter",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

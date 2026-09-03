@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+
+## 0.1.1 - 2026-09-03
+
+### Changed
+
+- Updated Astro to 7.2.8.
+
+### Fixed
+
+- Replaced outdated web manifest defaults with neutral UluBit starter values.
+
 ## 0.1.0 - 2026-08-08
 
 ### Added
