@@ -6,7 +6,7 @@ const buildYear = new Date().getFullYear()
 <footer class="site-footer">
   <div class="container">
     <p class="copyright">&copy; <span data-year>{buildYear}</span> | <a href="/" class="link">{ siteConfig.brand.name }</a></p>
-    <p class="dev">web by <a href={siteConfig.devUrl} class="link">{ siteConfig.dev }</a></p>
+    <p class="dev">by <a href={siteConfig.devUrl} class="link">{ siteConfig.dev }</a></p>
   </div>
 </footer>
 
@@ -39,6 +39,10 @@ const buildYear = new Date().getFullYear()
   span[data-year],
   .dev a {
     font-family: var(--font-mono);
+  }
+
+  .dev a {
+    color: var(--color-brand);
   }
 </style>
 

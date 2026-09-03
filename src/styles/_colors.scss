@@ -4,4 +4,6 @@
   --color-brand-600: oklch(70% 0.13 55.5);
   --color-brand-700: oklch(66% 0.13 55.5);
   --color-brand-800: oklch(52% 0.12 55.5);
+
+  --color-brand: light-dark(var(--color-brand-800), var(--color-brand-400));
 }
