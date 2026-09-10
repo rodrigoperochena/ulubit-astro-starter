@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.1.2 - 2026-09-10
+
+### Changed
+
+- Updated `@ulubit/foundations` to 0.1.4.
+- Updated `@ulubit/ui` to 0.1.1.
+- Updated Astro to 7.2.10.
 
 ## 0.1.1 - 2026-09-03
 
