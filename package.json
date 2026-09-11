@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@ulubit/foundations": "^0.1.4",
     "@ulubit/ui": "^0.1.1",
-    "astro": "^7.2.10"
+    "astro": "^7.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
