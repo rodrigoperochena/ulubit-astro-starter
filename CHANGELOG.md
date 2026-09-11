@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+## 0.1.3 - 2026-09-12
+
+### Added
+
+- Added typed environment variables for Umami analytics configuration.
+- Added `.env.example` documenting the available analytics variables.
+
+### Changed
+
+- Moved Umami analytics configuration from `site.config.ts` to deployment environment variables.
+- Updated Astro to 7.3.1.
+
 ## 0.1.2 - 2026-09-10
 
 ### Changed
