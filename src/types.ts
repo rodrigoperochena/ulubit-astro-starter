@@ -58,8 +58,6 @@ export interface SiteConfig {
 
 	dev: string
 	devUrl: string;
-	
-  analyticsId: string
 }
 
 export interface SiteMeta {

@@ -10,7 +10,6 @@ const { title, description, ogImage, articleDate } = Astro.props
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage ? ogImage : "/og-image.jpg", Astro.url).href
-const analyticsId = siteConfig.analyticsId
 ---
 
 <!-- Charset & Viewport -->
@@ -20,7 +19,7 @@ const analyticsId = siteConfig.analyticsId
 <!-- Theme Color -->
 
 <!-- Analytics -->
-<Analytics {analyticsId} />
+<Analytics />
 
 <!-- Essential Metadata -->
 <title>{title} | { siteConfig.brand.name }</title>

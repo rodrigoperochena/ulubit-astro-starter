@@ -79,8 +79,6 @@ export const siteConfig = {
 	dev: 'UluBit',
 	devUrl: "https://ulubit.com",
 
-	// Replace with the data-website-id value 
-	analyticsId: "",
 } as const satisfies SiteConfig;
 
 // Used to generate links, currently used in Navigation.astro.

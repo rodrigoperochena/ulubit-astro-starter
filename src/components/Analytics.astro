@@ -1,17 +1,14 @@
 ---
-interface Props {
-  analyticsId: string
-}
+import { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } from 'astro:env/server'
 
-const { analyticsId } = Astro.props
 const isProd = import.meta.env.PROD
-const shouldLoadAnalytics = isProd && analyticsId
+const shouldLoadAnalytics = isProd && UMAMI_WEBSITE_ID && UMAMI_SCRIPT_URL
 ---
 {shouldLoadAnalytics && (
   <script 
     is:inline 
     defer 
-    src="https://analytics.ulubit.com/app.js" 
-    data-website-id={analyticsId}
+    src={UMAMI_SCRIPT_URL}
+    data-website-id={UMAMI_WEBSITE_ID}
   ></script>
 )}

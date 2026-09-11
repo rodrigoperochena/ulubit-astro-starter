@@ -17,6 +17,7 @@ Shared design foundations are provided by `@ulubit/foundations`. Reusable Astro 
 * `sass-embedded`
 * Astro Fonts API with Fontsource
 * Typed site configuration
+* Typed environment variables
 * Base layout
 * SEO and social metadata
 * Canonical URLs
@@ -24,7 +25,7 @@ Shared design foundations are provided by `@ulubit/foundations`. Reusable Astro 
 * Sitemap generation
 * Favicons, web manifest, and Open Graph image
 * Responsive navigation
-* Production analytics component
+* Optional Umami analytics
 * No frontend framework dependency
 
 ## Getting started
@@ -57,7 +58,7 @@ Before building the site:
 2. Replace the logo, favicons, manifest icons, and Open Graph image.
 3. Configure the project fonts in `astro.config.mjs`.
 4. Update the navigation links.
-5. Configure or remove analytics.
+5. Configure Umami analytics or remove the analytics component.
 6. Add the project pages and content.
 
 ## Commands
@@ -106,7 +107,6 @@ The central typed configuration for:
 * contact information
 * social accounts
 * navigation
-* analytics
 
 ### `src/styles/global.scss`
 
@@ -139,19 +139,32 @@ Handles:
 * font preloads
 * analytics
 
+### `src/components/Analytics.astro`
+
+Provides optional Umami analytics.
+
+Analytics are only loaded for production builds when both environment variables are available:
+
+```env
+UMAMI_WEBSITE_ID=
+UMAMI_SCRIPT_URL=
+```
+
+The available variables are documented in `.env.example`. Set their actual values in the deployment environment rather than committing deployment-specific values to the repository.
+
 ### `src/pages/robots.txt.ts`
 
 Generates `robots.txt` using the production URL from the site configuration.
 
 ### `astro.config.mjs`
 
-Configures Astro, sitemap generation, and project fonts.
+Configures Astro, sitemap generation, project fonts, and the typed environment variable schema.
 
 ## Documentation
 
 This README covers creating, configuring, and running the starter.
 
-Detailed documentation belongs in [UluBit Docs](https://docs-ulubit.netlify.app/), including:
+Detailed documentation belongs in [UluBit Docs](https://docs.ulubit.com/), including:
 
 * manual project setup
 * foundations usage
@@ -169,4 +182,13 @@ pnpm build
 pnpm preview
 ```
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rodrigoperochena/ulubit-astro-starter)
+### Umami analytics
+
+To enable analytics, set the following environment variables on the deployment platform:
+
+```env
+UMAMI_WEBSITE_ID=your-website-id
+UMAMI_SCRIPT_URL=https://your-analytics-domain.example/script.js
+```
+
+If either variable is missing, the analytics script is not rendered.
