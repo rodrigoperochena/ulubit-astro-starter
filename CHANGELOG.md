@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.1.4 - 2026-09-15
+
+### Changed
+
+- Updated `@ulubit/foundations` to 0.1.5.
+- Updated `@ulubit/ui` to 0.1.2.
+
 ## 0.1.3 - 2026-09-12
 
 ### Added
