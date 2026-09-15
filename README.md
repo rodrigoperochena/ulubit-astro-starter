@@ -1,4 +1,4 @@
-# <img alt="ulubit logo" src="https://ulubit.com/favicon.svg" width="28"> UluBit Astro Starter [![Static Badge](https://img.shields.io/badge/v0.1.3-2b7fff)](https://github.com/rodrigoperochena/ulubit-astro-starter/releases)
+# <img alt="ulubit logo" src="https://ulubit.com/favicon.svg" width="28"> UluBit Astro Starter [![Static Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/rodrigoperochena/ulubit-astro-starter/main/package.json&query=$.version&label=version&color=2b7fff)](https://github.com/rodrigoperochena/ulubit-astro-starter/releases)
 
 A small Astro starter for building UluBit websites consistently.
 
