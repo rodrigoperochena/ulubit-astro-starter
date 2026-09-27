@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.1.5 - 2026-09-27
+
+### Changed
+
+- Updated Astro to 7.3.3.
+- Updated `@astrojs/sitemap` to 3.7.4
+- Updated `sass-embedded` to 1.104.1
+
 ## 0.1.4 - 2026-09-15
 
 ### Changed

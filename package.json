@@ -1,7 +1,7 @@
 {
   "name": "ulubit-astro-starter",
   "type": "module",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -13,14 +13,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@ulubit/foundations": "^0.1.5",
     "@ulubit/ui": "^0.1.2",
-    "astro": "^7.3.1"
+    "astro": "^7.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "sass-embedded": "^1.100.0",
+    "sass-embedded": "^1.104.1",
     "typescript": "^6.0.3"
   }
 }
