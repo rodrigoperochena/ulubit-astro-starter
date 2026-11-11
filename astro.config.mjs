@@ -14,7 +14,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: 'Fira Sans',
       cssVariable: '--font-fira-sans',
-      weights: ["300 700"]
+      weights: [200, 300, 400, 500, 600, 700]
     },
     {
       provider: fontProviders.fontsource(),
