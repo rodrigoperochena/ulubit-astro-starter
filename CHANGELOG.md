@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## [0.1.6] - 2026-11-11
+
+### Changed
+
+- Updated Astro to 7.3.5
+- Updated `@ulubit/ui` to 0.1.3
+- Adjusted homepage hero padding
+- Updated primary button text color
+
 ## 0.1.5 - 2026-09-27
 
 ### Changed
