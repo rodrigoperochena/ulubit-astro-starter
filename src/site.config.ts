@@ -36,7 +36,7 @@ export const siteConfig = {
     email: "example@example.com",
     
     phone: {
-      value: "+15555555555",
+      value: "15555555555",
       display: "+1 555-555-5555"
     }
   },
