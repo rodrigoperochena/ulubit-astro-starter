@@ -2,7 +2,20 @@
 
 ## Unreleased
 
-## [0.1.6] - 2026-11-11
+## 0.1.7 - 2026-22-11
+
+### Changed
+
+- Added a default value for the page description in `BaseHead.astro`.
+- Updated `BaseHead.astro` to use the configured site URL (`Astro.site`) in place of the current page URL (`Astro.url`).
+- Removed the leading `+` from the phone value in `site.config.ts`.
+- Updated `astro` to 7.4.12
+- Updated `@astrojs/sitemap` to 3.7.5
+- Updated `@astrojs/check` to 0.9.12
+- Updated `@ulubit/ui` to 0.1.4
+- Updated `sass-embedded` to 1.108.2
+
+## 0.1.6 - 2026-11-11
 
 ### Changed
 
