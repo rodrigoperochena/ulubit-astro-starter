@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-11-28
+
+### Changed
+
+- Updated `@ulubit/foundations` to `0.2.0`, adopting its shared reset, base styles, and default design system.
+- Updated `@ulubit/ui` to `0.1.6`.
+- Updated Astro to `7.4.13` and `@astrojs/sitemap` to `3.7.6`.
+
+### Fixed
+
+- Adjusted home page hero spacing to maintain consistent vertical padding across viewport heights.
+
 ## 0.1.7 - 2026-22-11
 
 ### Changed
