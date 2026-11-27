@@ -41,13 +41,13 @@ const bodyClass = "page-home"
   .hero {
     display: grid;
     align-items: center;
+    padding-block: var(--space-l);
     
     @media (height <= 42rem) {
       height: 100%;
-      padding-block: var(--space-l);
     }
 
-    @media (42rem <= height) {
+    @media (height >= 42rem) {
       height: 80%;
     }
 
